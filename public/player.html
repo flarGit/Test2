@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>	
+	<head>
+		<title>Test</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" media="all and (min-device-width: 830px)" href="player.css" />
+		<link rel="stylesheet" type="text/css" media="all and (max-device-width: 830px)" href="playermobil.css" />
+		<script src="socket.io/socket.io.js"></script>
+		<script src="jquery.min.js"></script>
+		<script src="player.js"></script>
+	</head>
+	<body>
+				
+	<header>Time <span id="time" name="time" ></span></header>
+		
+<form id="wait" name="wait" style="display: none;" method="post">		
+	<span id="waitme" name="waitme" ></span>
+	<br>Are you ready?  
+	<input id="waitbereit" name="waitbereit" type="button" class="btn" value="ready" />
+	<br>
+	<br>
+	<span id="waitother" name="waitither" ></span>
+	<br>
+	<div><font color="#FF0000">red</font> = Participant not yet logged in</div>
+	<div><font color="#DBA901">yellow</font> = Participants not ready yet</div>
+	<div><font color="#00C000">green</font> = Participants ready</div>
+</form>	
+
+		
+<form id="mychat" name="mychat" style="display: none;" method="post">
+	
+		<div id="chattextform" name="chattextform">
+			<!-- <img id="B1" alt="" height="100" src="B1.jpg" width="100"> -->
+			<!-- <div id="chatctocin" name="chatctocin"> -->
+			<!-- 	Das ist das muster -->
+			<!-- </div> -->
+		</div>	
+		<textarea id="chattextinput" name="chattextinput" rows="4" cols="50" ></textarea>
+		<script>
+			var input = document.getElementById("chattextinput");
+			input.addEventListener("keyup", function(event) {
+				event.preventDefault();
+				if (event.keyCode === 13) {
+					document.getElementById("chatnachrichtsendenkey").click();
+				}
+			});
+		</script>
+		<br>
+		<input id="chatnachrichtsendenkey" name="chatnachrichtsendenkey" type="button" class="btn" value="senden" />
+		<input type="checkbox" id="autoscroll" name="autoscroll" value="autoscroll" checked> autoscroll On/Off<br>
+</form>
+		<form id="loadingsite" name="loadingsite" method="post">
+			Please Wait - Loading progress
+		</form>
+		<form id="javaskriptfehler" name="javaskriptfehler" style="display: none;" method="post">
+			There is a bug in the java script, for more information they switch to the developer mode of their browser.<p>Chrome<br>From the menu, select tools.<br>From tools, choose developer tools.<br>Finally, select Console.<br>shortcut ctrl+shift+j</p><p>Firefox<br>From the menu, select developer tools<br>shortcut ctrl+shift+k</p>
+		</form>
+		<script>
+			function load() {
+				document.getElementById('loadingsite').style.display = "none";
+				document.getElementById('javaskriptfehler').style.display = "";
+			}
+			window.onload = load;
+		</script>
+
+</body>
+	
+</html>

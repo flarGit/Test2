@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>Test</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="socket.io/socket.io.js"></script>
+	</head>
+	
+		
+		
+		<script>
+			function load() {			
+				//suchen ob die daten in der url sind wenn ja abschicken
+				var temp = location.search;
+				if(temp.indexOf("?key=") != -1){
+					var key  = location.search.split('?key=')[1];
+					document.getElementById("password").value =key;
+					document.getElementById("submitBT").click();
+				}
+			}
+			window.onload = load;
+		</script>
+	<form id="login" name="login" action="login" style="display: none;" method="post">	
+            <div>
+                <label for="password">Password</label>
+                <input type="password", name="password", id="password">
+			</div>
+            <div>
+                <input type="submit",name="submitBT", id="submitBT", value="Log in">
+			</div>
+	</form>	
+	
+	<span id="htmltesttext" name="htmltesttext">Please update your browser or switch to a recent Chrome, Firefox bowser.<br>JavaScript must be enabled to run the experiment.</span>
+	<script>
+			var i = document.createElement("input");
+			i.setAttribute("type","color");
+			if(i.type !== "text"){
+				document.getElementById('htmltesttext').style.display = "none";
+				document.getElementById('login').style.display = "";
+			}
+	</script>

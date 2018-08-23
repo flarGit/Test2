@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>Ende</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="socket.io/socket.io.js"></script>
+	</head>
+	
+		<form id="loadingsite" name="loadingsite" method="post">
+			Please Wait - Loading progress
+		</form>
+		<form id="javaskriptfehler" name="javaskriptfehler" style="display: none;" method="post">
+			There is a bug in the java script, for more information they switch to the developer mode of their browser.<p>Chrome<br>From the menu, select tools.<br>From tools, choose developer tools.<br>Finally, select Console.<br>shortcut ctrl+shift+j</p><p>Firefox<br>From the menu, select developer tools<br>shortcut ctrl+shift+k</p>
+		</form>
+		<form id="endetext" name="endetext" method="post">
+            This part of the experiment is now over.<br>
+			Continue with the questionnaire via this link:<br>
+			<a id="mylink" name="mylink" href="">continue Link</a>
+		</form>
+		<script>
+			function load() {
+				document.getElementById('loadingsite').style.display = "none";
+				document.getElementById('javaskriptfehler').style.display = "none";
+				//suchen ob die daten in der url sind wenn ja abschicken
+				var temp = location.search;
+				if(temp.indexOf("?link=") != -1){
+					var link  = location.search.split('?link=')[1];
+					document.getElementById("mylink").href="https://hierkommtnochderlink.de/" + link;
+				}
+			}
+			window.onload = load;
+		</script>
+	

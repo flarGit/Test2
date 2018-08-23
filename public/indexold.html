@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>	
+	<head>
+		<title>WengeNode</title>
+		<meta charset="utf-8">
+	</head>
+	<body>				
+		<header>WengeNode</header>
+		<br>
+		<br>
+		<span id="htmltesttext" name="htmltesttext">Bitte updaten sie ihren Browser oder wechseln sie auf einen aktuellen Chrome, Firefox bowser.<br>JavaScrip muss für die Ausführung des Experiments Aktiviert sein.</span>
+		<script>
+				var i = document.createElement("input");
+				i.setAttribute("type","color");
+				if(i.type !== "text"){
+					document.getElementById('htmltesttext').style.display = "none";	
+					location.replace('/player');
+				}
+		</script>	
+	</body>
+</html>
