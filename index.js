@@ -135,7 +135,7 @@ function saveFileTimer(){
 
 var http = require('http');
 var server = http.createServer(app);
-server.listen(8080);
+server.listen(80);
 var io = require('socket.io').listen(server);
 
 //für logout
